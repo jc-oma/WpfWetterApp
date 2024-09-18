@@ -26,19 +26,20 @@ namespace WpfWetterApp
             }
             else
             {
-                var temperature = KelvinToCelsiús(data.Main.Temp);
+                var temperature = KelvinToCelsius(data.Main.Temp);
                 text_block_temperatur.Text = temperature.ToString("0.00") + " °C";
             }
         }
 
-        private double KelvinToCelsiús(double temp)
+        public static double KelvinToCelsius(double temp)
         {
             double offset = -272.15;
-            return temp + offset;
+            double result = temp + offset;
+            return result;
         }
 
         //TODO in einen Service auslagern
-        public async Task<_200?> GetWeather()
+        public static async Task<_200?> GetWeather()
         {
             var httpClient = new HttpClient();
             var apiClient = new WebAPI(httpClient);
