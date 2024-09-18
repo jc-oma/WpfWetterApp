@@ -15,6 +15,7 @@ namespace WpfWetterApp
             InitializeComponent();
         }
 
+        //TODO ViewModel erstellen
         private async void Get_Weather_Click(object sender, RoutedEventArgs e)
         {
             text_block_temperatur.Text = "Downloading...";
@@ -36,6 +37,7 @@ namespace WpfWetterApp
             return temp + offset;
         }
 
+        //TODO in einen Service auslagern
         public async Task<_200?> GetWeather()
         {
             var httpClient = new HttpClient();
